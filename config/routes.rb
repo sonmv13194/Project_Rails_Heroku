@@ -10,11 +10,8 @@ Rails.application.routes.draw do
   root 'page_home#home'
   get 'home',to:'page_home#home'
   get 'help',to:'page_home#help'
-<<<<<<< HEAD
   get 'contact',to:'page_home#contact'
-=======
   get 'about',to:'page_home#about'
->>>>>>> filling-in-layout
 
   resources :microposts
   resources :users
