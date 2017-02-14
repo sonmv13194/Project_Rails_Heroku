@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> filling-in-layout
 body {
   padding-top: 60px;
 }
@@ -15,6 +19,7 @@ textarea {
 
 .center {
   text-align: center;
+<<<<<<< HEAD
   h1 {
     margin-bottom: 10px;
   }
@@ -22,6 +27,13 @@ textarea {
 
 /* typography */
 
+=======
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+>>>>>>> filling-in-layout
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
@@ -39,26 +51,38 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
+<<<<<<< HEAD
   color: $gray-light;
+=======
+  color: #777;
+>>>>>>> filling-in-layout
 }
 
 p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
+<<<<<<< HEAD
 
 
 /* header */
 
+=======
+>>>>>>> filling-in-layout
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
+<<<<<<< HEAD
   color: white;
+=======
+  color: #fff;
+>>>>>>> filling-in-layout
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+<<<<<<< HEAD
   &:hover {
     color: white;
     text-decoration: none;
@@ -89,4 +113,39 @@ footer {
       margin-left: 15px;
     }
   }
+=======
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+>>>>>>> filling-in-layout
 }
