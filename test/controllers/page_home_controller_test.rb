@@ -9,7 +9,7 @@ class PageHomeControllerTest < ActionDispatch::IntegrationTest
   test "should get home" do
     get page_home_home_url
     assert_response :success
-    assert_select "title", "Ruby on Rails Tutorial Sample App"
+    assert_select "title", "Home | #{@base_title}"
   end
 
   test "should get help" do

@@ -1,7 +1,8 @@
+<% provide(:title ,"Home")%>
 <!DOCTYPE html>
 <html>
   <head>
-    
+    <title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
   </head>
   <body>
     <h1>Trang chu</h1>
@@ -23,7 +24,7 @@
           sample application.
         </h2>
 
-        <a href="#" class="btn btn-lg btn-primary">Sign up now!</a>
+        <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
     </div>
 
         <%= link_to image_tag("rails.png", alt: "Rails logo"),
