@@ -11,4 +11,7 @@ class PageHomeController < ApplicationController
   def contact
   	
   end
+  def signup
+    
+  end
 end

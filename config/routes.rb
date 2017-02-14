@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get 'help',to:'page_home#help'
   get 'contact',to:'page_home#contact'
   get 'about',to:'page_home#about'
-  get 'signup',to:'page_home#new'
+  get 'signup',to:'user#new'
 
   resources :microposts
   resources :users
