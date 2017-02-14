@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   get 'page_home/contact'
 
-
+  root 'page_home#home'
+  get 'home',to:'page_home#home'
+  get 'help',to:'page_home#help'
+  get 'about',to:'page_home#about'
 
   resources :microposts
   resources :users
