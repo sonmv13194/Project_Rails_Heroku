@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'session/new'
+
   get 'user/new'
 
   get 'page_home/home'
@@ -17,6 +19,9 @@ Rails.application.routes.draw do
   get 'contact',to:'page_home#contact'
   get 'about',to:'page_home#about'
   get 'signup',to:'users#new'
+  get 'login',to:'sessions#new'
+  post 'login', to:'sessions#create'
+  delete 'logout',to:'sessions#destroy'
 
   resources :microposts
   resources :users
