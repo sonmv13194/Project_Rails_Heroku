@@ -6,13 +6,14 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.where(activated: FILL_IN).paginate(page: params[:page])
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    redirect_to root_url and return unless FILL_IN
   end
 
   # GET /users/new
@@ -29,14 +30,13 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-      if @user.save
-        log_in @user
-        flash[:success] = "Welcome to Sample App"
-        redirect_to @user
-      else
-        render 'new'
-      end
-    end
+    if @user.save
+      @user.send_activation_email
+      flash[:info] = "Vui long kiem tra tai khoan email cua ban de kich hoat dang ky"
+      redirect_to root_url
+    else
+      render 'new'
+  end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
