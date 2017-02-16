@@ -23,7 +23,17 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
-
+.profile-avartar{
+  margin-top:15px;
+}
+.profile-avartar img{
+  margin-right:20px;
+  height:24px;
+  width:24px;
+}
+.navbar-inverse .navbar-nav > span > a{
+  color: white;
+}
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
@@ -164,5 +174,30 @@ input {
   @extend .has-error;
   .form-control {
     color: $state-danger-text;
+  }
+}
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+a:hover{
+  text-decoration:none;
+}
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
   }
 }
