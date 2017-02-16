@@ -6,14 +6,14 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.where(activated: FILL_IN).paginate(page: params[:page])
+    @users = User.paginate(page: params[:page])
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    redirect_to root_url and return unless FILL_IN
+    redirect_to root_url and return unless current_user?(@user)
   end
 
   # GET /users/new
@@ -36,6 +36,7 @@ class UsersController < ApplicationController
       redirect_to root_url
     else
       render 'new'
+    end
   end
 
   # PATCH/PUT /users/1
