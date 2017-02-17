@@ -5,4 +5,7 @@
     | <%= link_to "delete", user, method: :delete,
                                   data: { confirm: "You sure?" } %>
   <% end %>
+  <ul class="user">
+  	<%= render @user %>
+  </ul>
 </li>

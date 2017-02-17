@@ -3,7 +3,7 @@ class User < ApplicationRecord
 	#before_save	 {self.email = email.downcase}
   before_save   :downcase_email
   before_create :create_activation_digest
-	has_many :microposts
+  has_many :microposts, dependent: :destroy
 	validates :name,presence:true,length: {maximum: 50}
 	validates :password,presence:true,length: {minimum: 6}
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -65,6 +65,10 @@ class User < ApplicationRecord
 
     def password_reset_expirated?
       reset_send_at < 2.hours.ago
+    end
+
+    def feed
+      Micropost.where("user_id = ?", id)
     end
 
 end
