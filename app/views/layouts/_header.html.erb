@@ -1,8 +1,8 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top navbar-head-top">
   <div class="container">
     <%= link_to "sample app",root_path, id: "logo" %>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right nav-head-top">
         <% if logged_in? %>
         <li><%= link_to @current_user.name,   current_user %></li>
         <li><%= link_to "Trang chu",   home_path %></li>
@@ -11,7 +11,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
  
               <b class="caret"></b></a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu item-settings">
               <li><%= link_to "Profile", current_user %></li>
               <li><%= link_to "Setting", edit_user_path(current_user) %></li>
               <li class="divider">

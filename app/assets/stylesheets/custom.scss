@@ -4,15 +4,27 @@
 body {
   padding-top: 60px;
 }
-
+.navbar-head-top{
+  background-color:#3b5998;
+}
+.nav-head-top li a{
+  color: white;
+}
+.nav-head-top li a:hover{
+  background: #3b5998;
+}
+.content-infor{
+  background-color:#fafafa;
+}
 section {
   overflow: auto;
 }
-
 textarea {
   resize: vertical;
 }
-
+.open a:focus{
+      border-color: #337ab7;
+}
 .center {
   text-align: center;
 }
@@ -61,7 +73,7 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
+  color: black;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -145,6 +157,7 @@ aside {
 .gravatar {
   float: left;
   margin-right: 10px;
+  border-radius: 100%;
 }
 
 .gravatar_edit {
@@ -231,6 +244,9 @@ a:hover{
     margin-top: 5px;
   }
 }
+.microposts span a{
+  color:#365899;
+}
 
 aside {
   textarea {
@@ -244,4 +260,78 @@ span.picture {
   input {
     border: 0;
   }
+}
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+}
+
+.stats {
+  overflow: auto;
+  margin-top: -20px;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    font-size: 18px;
+    border-left: 1px solid $gray-lighter;
+    color: #262626;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      background-color: #fff;
+      color: #333;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+.stats-name{
+  font-size: 25px;
+}
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
+.users.follow {
+  padding: 0;
+}
+.setting-user{
+  border: 1px solid;
+  width: 50%;
+  border-radius:2px;
+  margin-left: -5px;
+  padding: 5px 10px 10px 10px;
+}
+.setting-user a:hover{
+  backgroung-color: white;
+  color: #333;
+  margin-right: 10px;
+}
+.setting-user a{
+    font-size:20px;
+}
+.user-infor-item{
+  background: #fafafa;
+}
+.button-post{
+  width: 30%;
+  float: right;
+}
+.item-settings li a{
+  color: black
 }

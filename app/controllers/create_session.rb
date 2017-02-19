@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   		redirect_back_or user
   	else
   	flash.now[:danger] = "Invalid username(email) or password"
-  	render "new"
+  	render "home"
   end
   end
 
