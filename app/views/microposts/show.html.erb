@@ -22,7 +22,7 @@
  <% else %>
 <%= form_for([@micropost, @micropost.comments.build]) do |f| %>
  <%= f.text_area :content %>
- <button class="pull-right"><%= link_to "Comment" ,login_path%></button>
+<%= link_to "Comment" ,login_path%>
  <% end %>
  <strong id="followers" class="stat">
       <%= @comments.count %> comments
