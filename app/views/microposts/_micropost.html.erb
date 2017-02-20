@@ -1,6 +1,12 @@
 <li id="micropost-<%= micropost.id %>">
   <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
-  <span class="user"><%= link_to micropost.user.name, micropost.user %> đã đăng một 
+  <span class="user">
+  <% if logged_in? %>
+  <%= link_to micropost.user.name, micropost.user %> 
+  <% else %>
+  <%= link_to micropost.user.name, login_path %> 
+  <% end %>
+  đã đăng một 
   <%= link_to "bài viết", micropost %>
   </span><br>
    <span class="title"><%= micropost.created_at %></span><br>
