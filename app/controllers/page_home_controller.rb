@@ -2,7 +2,9 @@ class PageHomeController < ApplicationController
   def home
      if logged_in?
       @micropost  = current_user.microposts.build
-      @feed_items = current_user.feed.paginate(page: params[:page])
+      @feed_items = Micropost.all.paginate(page: params[:page])
+      #@users = User.paginate(page: params[:page])
+       @comments = Comment.where(micropost_id: @micropost).order("created_at DESC")
     end
   end
 
@@ -18,4 +20,5 @@ class PageHomeController < ApplicationController
   def signup
     
   end
+  
 end

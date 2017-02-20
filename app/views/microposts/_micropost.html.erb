@@ -1,6 +1,9 @@
 <li id="micropost-<%= micropost.id %>">
   <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
-  <span class="user"><%= link_to micropost.user.name, micropost.user %>  đã đăng một bài viết</span><br>
+  <span class="user"><%= link_to micropost.user.name, micropost.user %> đã đăng một 
+  <%= link_to "bài viết", micropost %>
+  </span><br>
+   <span class="title"><%= micropost.created_at %></span><br>
    <span class="title"><%= micropost.title %></span><br>
   <span class="content">
     <%= micropost.content %>
@@ -12,5 +15,6 @@
       <%= link_to "Xóa bài đăng", micropost, method: :delete,
                                        data: { confirm: "You sure?" } %>
     <% end %>
+   
   </span>
 </li>

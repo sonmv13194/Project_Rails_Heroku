@@ -4,6 +4,7 @@ class User < ApplicationRecord
   before_save   :downcase_email
   before_create :create_activation_digest
   has_many :microposts, dependent: :destroy
+  has_many :comments
   has_many :active_relationships,  class_name:  "Relationship",
                                    foreign_key: "follower_id",
                                    dependent:   :destroy
@@ -75,12 +76,12 @@ class User < ApplicationRecord
       reset_send_at < 2.hours.ago
     end
 
-      def feed
+    def feed
     Micropost.where("user_id IN (?) OR user_id = ?", following_ids, id)
-  end
+    end
     def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
-  end
+    end
 
     def following?(other_user)
       following.include?(other_user)

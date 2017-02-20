@@ -1,18 +1,25 @@
 class MicropostsController < ApplicationController
+  before_action :find_post,       only: [:show, :edit, :update, :destroy]
 	before_action :logged_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: :destroy
 
+  #Hien thi tat ca cac record trong Model Micropost
   def index
-    @micropost = Micropost.all
+    @feed_items = Micropost.all.paginate(page: params[:page])
   end
- 
+  #Hien thi tat ca cac record lien ket
+  def show
+    @comments = Comment.where(micropost_id: @micropost).order("created_at DESC")
+  end
+
+  #Goi ham POST
    def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
       flash[:success] = "Micropost created!"
       redirect_to root_url
     else
-      @feed_items = []
+
       render 'page_home/home'
     end
   end
@@ -34,4 +41,7 @@ class MicropostsController < ApplicationController
     params.require(:micropost).permit(:title, :content, :picture)
   end
 
+  def find_post
+    @micropost = Micropost.find(params[:id])
+  end
 end

@@ -1,12 +1,13 @@
 <header class="navbar navbar-fixed-top navbar-head-top">
   <div class="container">
-    <%= link_to "sample app",root_path, id: "logo" %>
+    <%= link_to "sample app",microposts_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right nav-head-top">
         <% if logged_in? %>
         <li><%= link_to @current_user.name,   current_user %></li>
         <li><%= link_to "Trang chu",   home_path %></li>
         <li><%= link_to "User",   users_path %></li>
+        <li><%= link_to "Post",   microposts_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
  

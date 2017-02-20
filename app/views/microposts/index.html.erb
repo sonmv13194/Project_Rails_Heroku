@@ -1,0 +1,9 @@
+<div class="col-md-2"></div>
+<% if @feed_items.any? %>
+<div class="col-md-6">
+  <ol class="microposts">
+    <%= render @feed_items %>
+  </ol>
+ </div>
+  <%= will_paginate @feed_items %>
+<% end %>

@@ -1,0 +1,7 @@
+<% if logged_in? %>
+<%= form_for([@micropost, @micropost.comments.build]) do |f| %>
+ <%= f.text_area :content %>
+ <%= f.submit %>
+ <% end %>
+ <% end %>
+ 

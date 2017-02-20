@@ -1,0 +1,4 @@
+<% @comments.each do |f| %>
+<p><%= f.user.name %><br>
+<%= f.content %> <%= link_to "Xóa",[f.micropost, f], method: :delete %></p>
+<% end %>

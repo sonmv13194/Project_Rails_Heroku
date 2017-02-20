@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <div class="row">
-    <aside class="col-md-2">
+    <aside class="col-md-3">
     </aside>
     <div class="col-md-8">
       <section class="micropost_form">
@@ -8,14 +8,14 @@
       </section>
       <%= render 'shared/feed' %>
     </div>
-    <div class="col-md-2"></div>
+    <!-- <div class="col-md-2"></div> -->
   </div>
 <% else %>
 <div class="col-sm-6">
   <div class="center jumbotron">
     <h1>Welcome to the Sample App</h1>
 
-    <h2>
+    <h2 class="image-home-page">
     <%= link_to image_tag("social-connect.png", alt: "Rails logo"),
               'http://rubyonrails.org/' %>
     </h2>
