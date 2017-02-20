@@ -10,6 +10,15 @@
  <%= f.text_area :content %>
  <div class="sub-comment"><%= f.submit "Comment", class: 'btn btn-success subm-comment pull-right' %></div>
  <% end %>
+  <strong id="followers" class="stat">
+      <%= @comments.count %> comments
+  </strong>
+ <% @comments.each do |f| %>
+<p><%= link_to gravatar_for(f.user, size: 20) %><strong class="username-comment"><%= f.user.name %></strong>  <%= f.content %>  
+<% if logged_in? %>   
+<%= link_to "Xóa",[f.micropost, f], method: :delete %></p>
+	<% end %>
+<% end %>
  <% else %>
 <%= form_for([@micropost, @micropost.comments.build]) do |f| %>
  <%= f.text_area :content %>
@@ -17,13 +26,14 @@
  <% end %>
  <strong id="followers" class="stat">
       <%= @comments.count %> comments
-    </strong>
+  </strong>
  <% @comments.each do |f| %>
-<p><%= link_to gravatar_for(f.user, size: 20) %><strong class="username-comment"><%= f.user.name %></strong>  <%= f.content %>     <%= link_to "Xóa",[f.micropost, f], method: :delete %></p>
+<p><%= link_to gravatar_for(f.user, size: 20) %><strong class="username-comment"><%= f.user.name %></strong>  <%= f.content %>     
+<% if logged_in? %>   
+<%= link_to "Xóa",[f.micropost, f], method: :delete %></p>
+	<% end %></p>
 	
 <% end %>
 </div>		
  <% end %>
-
-
 </div>
