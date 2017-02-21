@@ -13,7 +13,7 @@
   <strong id="followers" class="stat">
       <%= @comments.count %> comments
   </strong>
- <% @comments.each do |f| %>
+ <% @comments.each do |followers| %>
 <p><%= link_to gravatar_for(f.user, size: 20) %><strong class="username-comment"><%= f.user.name %></strong>  <%= f.content %>  
 <% if current_user?(f.user) %>   
   <i class="glyphicon glyphicon-trash i-delete"><%= link_to "Xóa",[f.micropost, f], method: :delete %></i></p>
