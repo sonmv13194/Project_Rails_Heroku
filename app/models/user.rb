@@ -89,4 +89,9 @@ class User < ApplicationRecord
     def unfollow(other_user)
       following.delete(other_user)
     end
+
+    def self.search(search)
+      where("name LIKE ?", "%#{search}%")
+    end
 end
+

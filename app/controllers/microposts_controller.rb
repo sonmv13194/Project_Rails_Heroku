@@ -1,6 +1,6 @@
 class MicropostsController < ApplicationController
   before_action :find_post,       only: [:show, :edit, :update, :destroy]
-	before_action :logged_in_user, only: [:create, :destroy]
+	before_action :logged_in_user, only:  [:create, :destroy,:edit,:update]
   before_action :correct_user,   only: :destroy
 
   #Hien thi tat ca cac record trong Model Micropost
@@ -34,6 +34,19 @@ class MicropostsController < ApplicationController
       @micropost = current_user.microposts.find_by(id: params[:id])
       redirect_to root_url if @micropost.nil?
   end
+    def edit
+    @micropost = Micropost.find(params[:id])
+  end
+  def update
+    @micropost = Micropost.find(params[:id])
+    if @micropost.update_attributes(micropost_params)
+      flash[:success] = "Micropost update success!"
+      redirect_to request.referrer || root_url
+    else
+      flash.now[:danger] = "Micropost updated failed!"
+      redirect_to request.referrer || root_url
+  end
+end
 
   private
 
@@ -45,3 +58,4 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.find(params[:id])
   end
 end
+

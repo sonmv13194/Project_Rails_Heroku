@@ -20,6 +20,7 @@
     <% if current_user?(micropost.user) %>
       <%= link_to "Xóa bài đăng", micropost, method: :delete,
                                        data: { confirm: "You sure?" } %>
+      <%= link_to "Edit bài đăng", edit_micropost_path(micropost) %>                                 
     <% end %>
    
   </span>

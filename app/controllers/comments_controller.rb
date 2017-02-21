@@ -11,7 +11,8 @@ class CommentsController < ApplicationController
 			flash[:success] = "Comment was created"
 			redirect_to micropost_path(@micropost)
 		else
-			render 'new'
+			flash[:danger] = "Comment failed! Comment have to one letter"
+			redirect_to micropost_path(@micropost)
 			end
 	end
 
@@ -19,6 +20,21 @@ class CommentsController < ApplicationController
 		@comment.destroy
 		flash[:success] = "Xóa bình luận success"
 		redirect_to micropost_path(@micropost)
+	end
+
+	def edit
+		@comment = Comment.find(params[:id])
+	end
+
+	def update
+		@comment = Comment.find(params[:id])
+		if @comment.update_attributes(comment_params)
+			flash[:success] = "Comment was updated!"
+			redirect_to micropost_path(@micropost)
+		else
+			flash[:danger] = "Comments was not updated!!"
+			redirect_to micropost_path(@micropost)
+		end
 	end
 
 	def index
@@ -33,4 +49,7 @@ class CommentsController < ApplicationController
 		@comment = @micropost.comments.find(params[:id])
 	end
 	
+	def comment_params
+		params.require(:comment).permit(:content)
+	end
 end

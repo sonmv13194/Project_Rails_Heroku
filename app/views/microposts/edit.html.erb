@@ -1,7 +1,10 @@
+<div class="col-sm-2"></div>
+<div class="col-sm-8">
+<div class="content-status">
 <%= form_for(@micropost, html: { multipart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "Viết bài đăng của bạn..." %>
+    <%= f.text_area :content %>
   </div>
   <span class="picture">
     <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
@@ -17,3 +20,4 @@
     }
   });
 </script>
+</div>

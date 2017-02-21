@@ -1,9 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Users</h1>
-<%= will_paginate %>
+
 <div class="col-md-4"></div>
 <div>
+
+    <div class="col-md-6">
+    <%= form_for(users_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
+        <%= submit_tag "Search", class: 'btn btn-success' %>
+    <% end %>
+    </div>
+ 
 <table>
 
 
@@ -12,9 +20,10 @@
       <tr>
         <td><%= gravatar_for user, size: 50 %></td>
         <td><%= user.name %></td>
-        
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <% if current_user?(user) %>
+         <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <% end %>
+              <td><%= link_to 'Show', user %></td>
         <td> <% if current_user.admin? && !current_user?(user) %>
               | <%= link_to "delete", user, method: :delete,
                                   data: { confirm: "You sure?" } %>
@@ -23,7 +32,6 @@
     <% end %>
   </tbody>
 </table>
-<%= will_paginate %>
 </div>
 <div class="col-sm-4"></div>
 <br>

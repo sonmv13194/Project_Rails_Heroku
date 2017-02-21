@@ -15,8 +15,8 @@
   </strong>
  <% @comments.each do |f| %>
 <p><%= link_to gravatar_for(f.user, size: 20) %><strong class="username-comment"><%= f.user.name %></strong>  <%= f.content %>  
-<% if logged_in? %>   
-<%= link_to "Xóa",[f.micropost, f], method: :delete %></p>
+<% if current_user?(f.user) %>   
+  <i class="glyphicon glyphicon-trash i-delete"><%= link_to "Xóa",[f.micropost, f], method: :delete %></i></p>
 	<% end %>
 <% end %>
  <% else %>
